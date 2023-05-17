@@ -122,7 +122,7 @@ if email_subject.startswith(("Join", "Welcome")):
                 #part.set_payload(modified_text)
 
 
-msg.attach(MIMEText(html_contents, 'html'))
+    msg.attach(MIMEText(html_contents, 'html'))
 
 fmt = '{}'
 
@@ -135,8 +135,8 @@ try:
             server.login(smtp_user, smtp_password)
         else:
             server.ehlo()
-        #server.sendmail(sender, recipient, fmt.format(msg).encode('utf-8') )
-        server.sendmail(sender, recipient, msg.as_string() )
+        server.sendmail(sender, recipient, fmt.format(msg).encode('utf-8') )
+        #server.sendmail(sender, recipient, msg.as_string() )
         server.quit()
 
     logging.info(f'Successfully sent email from {sender} to {recipient}')

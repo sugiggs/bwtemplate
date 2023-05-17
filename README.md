@@ -1,6 +1,15 @@
 ### bwtemplate
 
 This repository contains the necessary instructions to set up and configure `bwtemplate` for the Bitwarden Password Manager.
+### Customizing Email Templates
+
+Currently, the customization options are limited to the invitation email and welcome email. To modify the content of these emails, follow the steps below:
+
+1. Locate the `invitation.html` and `welcome.html` files.
+2. Edit these files to customize the HTML content of the outgoing emails.
+3. Save your changes.
+
+The modified `invitation.html` and `welcome.html` files will be used as the new email templates, replacing the default content in the outgoing emails.
 
 #### Directory Setup
 

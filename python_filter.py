@@ -40,11 +40,6 @@ for line in lines:
     elif line.startswith('bwtemplate__subject_welcome='):
         mail_subject['welcome'] = line.split('=')[1]
 
-#new_subject = '[BMW IT Dept] New Tool: Bitwarden Password Manager'
-#new_from = 'BMW IT Dept <bmw@securityforte.com>'
-
-# Configure logging
-
 
 # Get the sender and recipient from command-line arguments
 sender = sys.argv[1]
@@ -118,8 +113,6 @@ if email_subject.startswith(("Join", "Welcome")):
 
                 modified_text = html_contents
                 part.set_payload(modified_text, charset=charset)
-                #part.set_payload(modified_text, charset='latin-1')
-                #part.set_payload(modified_text)
 
 
     msg.attach(MIMEText(html_contents, 'html'))
@@ -136,7 +129,6 @@ try:
         else:
             server.ehlo()
         server.sendmail(sender, recipient, fmt.format(msg).encode('utf-8') )
-        #server.sendmail(sender, recipient, msg.as_string() )
         server.quit()
 
     logging.info(f'Successfully sent email from {sender} to {recipient}')
